@@ -53,3 +53,35 @@ if (function_exists('register_sidebar')) {
 		'after_title' => '</h4>'
 	));
 }
+
+
+
+add_action('wp_ajax_send_order_email', 'send_order_email');
+add_action('wp_ajax_nopriv_send_order_email', 'send_order_email');
+
+function send_order_email() {
+   // $to = get_option('admin_email'); // Admin email
+	$to = 'mufaqar@gmail.com';
+    $subject = "New Box Order from Website";
+
+    $message = "
+    <h2>New Order Details</h2>
+    <p><strong>Dimension:</strong> {$_POST['dimension']}</p>
+    <p><strong>Box Stock:</strong> {$_POST['boxStock']}</p>
+    <p><strong>Quantity:</strong> {$_POST['quantity']}</p>
+    <p><strong>Printing:</strong> {$_POST['printing']}</p>
+
+    <h3>Shipping Info</h3>
+    <p><strong>Name:</strong> {$_POST['recipientName']}</p>
+    <p><strong>Phone:</strong> {$_POST['phoneNumber']}</p>
+    <p><strong>Address:</strong> {$_POST['streetAddress']}, {$_POST['city']}, {$_POST['state']} {$_POST['zipCode']}</p>
+    <p><strong>Additional Info:</strong> {$_POST['additionalInfo']}</p>
+    ";
+
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+    wp_mail($to, $subject, $message, $headers);
+
+    echo "✅ Your order has been sent successfully! We'll contact you shortly.";
+    wp_die();
+}
+
