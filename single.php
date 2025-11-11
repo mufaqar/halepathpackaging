@@ -133,8 +133,8 @@
                                         <div class="col-sm-3">
                                             <label>Quantity</label>
                                             <select name="quantity" class="form-control" required>
-                                                <option value="100">100</option>
-                                                <option value="200">200</option>
+                                                <option value="1">100</option>
+                                                <option value="2">200</option>
                                             </select>
                                         </div>
 
@@ -148,6 +148,7 @@
                                     </div>
 									 <p style="margin-top:20px; font-size:16px;">
                                     <strong>Price:</strong> $650 for 100 items
+                                    <input type="hidden" name="price" value="650">
                                 </p>
 
                                     <button type="submit" class="btn btn-primary btn-lg"

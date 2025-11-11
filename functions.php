@@ -60,7 +60,7 @@ add_action('wp_ajax_send_order_email', 'send_order_email');
 add_action('wp_ajax_nopriv_send_order_email', 'send_order_email');
 
 function send_order_email() {
-   // $to = get_option('admin_email'); // Admin email
+   //$to = get_option('admin_email'); // Admin email
 	$to = 'mufaqar@gmail.com';
     $subject = "New Box Order from Website";
 
@@ -70,6 +70,7 @@ function send_order_email() {
     <p><strong>Box Stock:</strong> {$_POST['boxStock']}</p>
     <p><strong>Quantity:</strong> {$_POST['quantity']}</p>
     <p><strong>Printing:</strong> {$_POST['printing']}</p>
+      <p><strong>Price:</strong> {$_POST['price']}</p>
 
     <h3>Shipping Info</h3>
     <p><strong>Name:</strong> {$_POST['recipientName']}</p>
@@ -84,4 +85,3 @@ function send_order_email() {
     echo "✅ Your order has been sent successfully! We'll contact you shortly.";
     wp_die();
 }
-

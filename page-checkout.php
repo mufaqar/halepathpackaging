@@ -1,6 +1,11 @@
 <?php
 /* Template Name: Checkout */
 get_header();
+
+ $qty = $_GET['quantity'];
+ $total =   $qty * esc_attr($_GET['price']);
+
+      
 ?>
 
 <!-- breadcrumb area -->
@@ -15,19 +20,18 @@ get_header();
     </div>
 </div>
 
-<style>
-
-</style>
-
 <div class="container">
     <div class="checkout-container">
-   
-
         <!-- Hidden fields to receive box data -->
         <input type="hidden" id="dimension" name="dimension" value="<?php echo esc_attr($_GET['dimension']); ?>">
         <input type="hidden" id="boxStock" name="box_stock" value="<?php echo esc_attr($_GET['box_stock']); ?>">
         <input type="hidden" id="quantity" name="quantity" value="<?php echo esc_attr($_GET['quantity']); ?>">
         <input type="hidden" id="printing" name="printing" value="<?php echo esc_attr($_GET['printing']); ?>">
+        <input type="hidden" id="price" name="price" value="<?php echo esc_attr($_GET['price']); ?>">
+         <input type="hidden" id="total" name="total" value="<?php echo $total ?>">
+
+
+       
 
 
 
@@ -41,10 +45,10 @@ get_header();
                         <p><strong>Product Name:</strong> <?php echo esc_html($_GET['box_stock']); ?></p>
                         <p><strong>Dimensions:</strong> <?php echo esc_html($_GET['dimension']); ?></p>
                         <p><strong>Material:</strong> Rigid</p>
-                
+
                         <p><strong>Quantity:</strong> <?php echo esc_html($_GET['quantity']); ?></p>
                         <p><strong>Printing:</strong> <?php echo esc_html($_GET['printing']); ?></p>
-                        <p class="order-total">Total: $1255</p>
+                        <p class="order-total">Total: <?php echo $total ?></p>
                     </div>
                 </div>
             </div>
@@ -120,6 +124,7 @@ jQuery(document).ready(function($) {
         var formData = {
             action: 'send_order_email',
             dimension: $('#dimension').val(),
+            price: $('#total').val(),
             boxStock: $('#boxStock').val(),
             quantity: $('#quantity').val(),
             printing: $('#printing').val(),
@@ -140,7 +145,7 @@ jQuery(document).ready(function($) {
         }).fail(function() {
             $('#checkoutMsg').html(
                 '<div class="alert alert-danger">Error sending email. Please try again.</div>'
-                );
+            );
         });
     });
 });
