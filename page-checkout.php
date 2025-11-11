@@ -127,7 +127,7 @@ jQuery(document).ready(function($) {
 
         var formData = {
             action: 'send_order_email',
-            product:$('#product').val(),
+            product: $('#product').val(),
             dimension: $('#dimension').val(),
             price: $('#total').val(),
             boxStock: $('#boxStock').val(),

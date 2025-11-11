@@ -66,9 +66,10 @@ function send_order_email() {
 
     $message = "
     <h2>New Order Details</h2>
+        <p><strong>Product:</strong> {$_POST['product']}</p>
     <p><strong>Dimension:</strong> {$_POST['dimension']}</p>
     <p><strong>Box Stock:</strong> {$_POST['boxStock']}</p>
-    <p><strong>Quantity:</strong> {$_POST['quantity']}</p>
+    <p><strong>Quantity:</strong> {$_POST['quantity']}00</p>
     <p><strong>Printing:</strong> {$_POST['printing']}</p>
       <p><strong>Price:</strong> {$_POST['price']}</p>
 
