@@ -5,6 +5,8 @@ get_header();
  $qty = $_GET['quantity'];
  $total =   $qty * esc_attr($_GET['price']);
 
+ $product = $_GET['pro'];
+
       
 ?>
 
@@ -23,15 +25,17 @@ get_header();
 <div class="container">
     <div class="checkout-container">
         <!-- Hidden fields to receive box data -->
+
+        <input type="hidden" id="product" name="product" value="<?php echo esc_attr($_GET['pro']); ?>">
         <input type="hidden" id="dimension" name="dimension" value="<?php echo esc_attr($_GET['dimension']); ?>">
         <input type="hidden" id="boxStock" name="box_stock" value="<?php echo esc_attr($_GET['box_stock']); ?>">
         <input type="hidden" id="quantity" name="quantity" value="<?php echo esc_attr($_GET['quantity']); ?>">
         <input type="hidden" id="printing" name="printing" value="<?php echo esc_attr($_GET['printing']); ?>">
         <input type="hidden" id="price" name="price" value="<?php echo esc_attr($_GET['price']); ?>">
-         <input type="hidden" id="total" name="total" value="<?php echo $total ?>">
+        <input type="hidden" id="total" name="total" value="<?php echo $total ?>">
 
 
-       
+
 
 
 
@@ -42,11 +46,11 @@ get_header();
                 <h2 class="section-title">Order Summary</h2>
                 <div class="row">
                     <div class="col-md-12">
-                        <p><strong>Product Name:</strong> <?php echo esc_html($_GET['box_stock']); ?></p>
+                        <p><strong>Product Name:</strong><?php echo $product ?> </p>
                         <p><strong>Dimensions:</strong> <?php echo esc_html($_GET['dimension']); ?></p>
-                        <p><strong>Material:</strong> Rigid</p>
+                        <p><strong>Material:</strong> <?php echo esc_html($_GET['box_stock']); ?></p>
 
-                        <p><strong>Quantity:</strong> <?php echo esc_html($_GET['quantity']); ?></p>
+                        <p><strong>Quantity:</strong> <?php echo esc_html($_GET['quantity']); ?>00</p>
                         <p><strong>Printing:</strong> <?php echo esc_html($_GET['printing']); ?></p>
                         <p class="order-total">Total: <?php echo $total ?></p>
                     </div>
@@ -123,6 +127,7 @@ jQuery(document).ready(function($) {
 
         var formData = {
             action: 'send_order_email',
+            product:$('#product').val(),
             dimension: $('#dimension').val(),
             price: $('#total').val(),
             boxStock: $('#boxStock').val(),

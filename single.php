@@ -113,6 +113,9 @@
                                 </p>
 
                                 <form action="<?php echo site_url('/checkout'); ?>" method="get" id="boxSelectionForm">
+
+                                <input type="hidden" name="price" value="650">
+                                <input type="hidden" name="pro" value="<?php the_title(); ?>">
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <label>Dimensions</label>
@@ -148,7 +151,7 @@
                                     </div>
 									 <p style="margin-top:20px; font-size:16px;">
                                     <strong>Price:</strong> $650 for 100 items
-                                    <input type="hidden" name="price" value="650">
+                                    
                                 </p>
 
                                     <button type="submit" class="btn btn-primary btn-lg"
