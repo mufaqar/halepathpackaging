@@ -172,7 +172,7 @@
                                         <p><strong>Quick</strong><br>Turnaround</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <i class="fa fa-pen-ruler" style="font-size:32px;"></i>
+                                        <i class="fa fa-pencil-square-o" style="font-size:32px;"></i>
                                         <p><strong>Free</strong><br>Designing</p>
                                     </div>
                                     <div class="col-sm-4">
