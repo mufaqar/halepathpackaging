@@ -168,15 +168,15 @@
                                 <!-- Icons Row -->
                                 <div class="row text-center" style="margin-top:30px;">
                                     <div class="col-sm-4">
-                                        <i class="fa fa-clock"></i>
+                                        <i class="fa fa-clock" style="font-size:32px;"></i>
                                         <p><strong>Quick</strong><br>Turnaround</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <i class="fa fa-box"></i>
+                                        <i class="fa fa-pen-ruler" style="font-size:32px;"></i>
                                         <p><strong>Free</strong><br>Designing</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <i class="fa fa-van"></i>
+                                        <i class="fa fa-truck" style="font-size:32px;"></i>
                                         <p><strong>Free</strong><br>Shipping</p>
                                     </div>
                                 </div>
