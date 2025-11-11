@@ -61,7 +61,7 @@ add_action('wp_ajax_nopriv_send_order_email', 'send_order_email');
 
 function send_order_email() {
    //$to = get_option('admin_email'); // Admin email
-	$to = 'mufaqar@gmail.com';
+	$to = 'sales@halepathpackaging.com,mufaqar@gmail.com';
     $subject = "New Box Order from Website";
 
     $message = "
